@@ -3,7 +3,7 @@
     "description": "Database-Free EPG Scraper API Framework",
     "type": "project",
     "require": {
-        "php": ">=8.0"
+        "php": "^8.2"
     },
     "license": "MIT"
 }
