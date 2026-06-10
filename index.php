@@ -24,6 +24,12 @@ if (!file_exists($registryPath)) {
 }
 $channelsConfig = include $registryPath;
 
+// Include Models
+$modelPath = __DIR__ . '/models/Program.php';
+if (file_exists($modelPath)) {
+    include_once $modelPath;
+}
+
 // Map Verification
 if (!isset($channelsConfig[$channelKey])) {
     http_response_code(404);
@@ -60,4 +66,6 @@ if (!is_array($outputData)) {
 }
 
 // Standardized Output Serialization
+// The outputData elements are expected to be instances of the Program model
+// which implements JsonSerializable for guaranteed formatting.
 echo json_encode($outputData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

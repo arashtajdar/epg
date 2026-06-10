@@ -48,11 +48,11 @@ try {
         $startTimestamp = $currentTime + ($index * 1800); // offset by 30 mins per item
         $endTimestamp = $startTimestamp + 1800; // 30 minutes duration
 
-        $outputData[] = [
-            'title' => trim((string)$item['title']),
-            'start_time' => date('c', $startTimestamp),
-            'end_time' => date('c', $endTimestamp)
-        ];
+        $outputData[] = new Program(
+            trim((string)$item['title']),
+            date('c', $startTimestamp),
+            date('c', $endTimestamp)
+        );
     }
 } catch (Exception $e) {
     // Log internal failure

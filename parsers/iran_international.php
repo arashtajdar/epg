@@ -76,11 +76,11 @@ try {
 
         $endTimestamp = $startTimestamp + $totalDurSeconds;
 
-        $outputData[] = [
-            'title' => $rawTitle,
-            'start_time' => date('c', $startTimestamp),
-            'end_time' => date('c', $endTimestamp)
-        ];
+        $outputData[] = new Program(
+            $rawTitle,
+            date('c', $startTimestamp),
+            date('c', $endTimestamp)
+        );
     }
 } catch (Exception $e) {
     // Log internal failure
